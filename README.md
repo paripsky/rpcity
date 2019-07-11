@@ -1,10 +1,12 @@
-Gangz
-====
+# Gangz
+
 Gangz is an online action role playing game.
 
-Todo
-------
+## Todo
+
+- [ ] testing with jest(ts)
 - [ ] tilemaps .tmx support?
+- [ ] city map
 - [ ] vector 2d class
 - [ ] scaling to stop advantage
 - [ ] fire + explosion effect
@@ -31,3 +33,7 @@ Todo
 - [ ] webgl?
 - [ ] cop car
 - [ ] cops? play as a cop?
+- [ ] sound volume by distance?
+- [ ] add slow motion?
+- [ ] character customization? clothes? colors?
+- [ ] blood effects

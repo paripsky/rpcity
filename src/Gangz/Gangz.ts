@@ -1,6 +1,7 @@
 import Game from '../Engine/Game/Game';
 import EntityFactory from '../Engine/Entities/EntityFactory';
-import assets from './assets';
+import textures from './textures';
+import sounds from './sounds';
 import Scene from '../Engine/Scene/Scene';
 import GameContext from '../Engine/Game/GameContext';
 import KeyboardEvents from '../Engine/Input/KeyboardEvents';
@@ -9,9 +10,10 @@ import { Controller } from '../Engine/Entities/Controller';
 
 export default class Gangz extends Game {
     public setup = async (gameContext: GameContext) => {
-        const { assets: assetsManager } = this.gameContext;
+        const { assets: assetsManager, sound: soundManager } = this.gameContext;
         const entityFactory = new EntityFactory(assetsManager);
-        await assetsManager.loadAssets(assets);
+        await assetsManager.load(textures);
+        await soundManager.load(sounds);
         const scene: Scene = new Scene([
             entityFactory
                 .createPlayer(undefined, { x: 200, y: 100 }, { width: 32, height: 32 })

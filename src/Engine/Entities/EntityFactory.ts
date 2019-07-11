@@ -1,4 +1,4 @@
-import AssetsManager from '../Assets/AssetsManager';
+import AssetsManager from '../Textures/TextureManager';
 import Point from '../Utils/Point';
 import Size from '../Utils/Size';
 import Person from './Person/Person';
@@ -12,19 +12,19 @@ export default class EntityFactory {
     }
 
     public createCar(): Car {
-        const car: Car = new Car({ texture: this.assetsManager.getTexture('car') });
+        const car: Car = new Car({ texture: this.assetsManager.get('car') });
         // const drivingBehavior: IBehavior = new DrivingBehavior();
         // car.addBehavior(drivingBehavior);
         return car;
     }
 
     public createNPCCar(texture: string = 'blackCar', position?: Point, size?): Car {
-        const car: Car = new Car({ texture: this.assetsManager.getTexture(texture), size, position });
+        const car: Car = new Car({ texture: this.assetsManager.get(texture), size, position });
         return car;
     }
 
     public createPlayer(texture: string = 'player1', position: Point, size: Size): Person {
-        const player: Person = new Person({ texture: this.assetsManager.getTexture('player1') });
+        const player: Person = new Person({ texture: this.assetsManager.get('player1') });
         player.setPosition(position);
         player.setSize(size);
         // const walkingBehavior: IBehavior = new WalkingBehavior();

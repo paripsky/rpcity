@@ -13,7 +13,7 @@ export default class Bullet extends Entity<BulletState> {
     public constructor(props) {
         super(props);
         const { position, angle } = props;
-        const speed = 1000;
+        const speed = 2000;
         this.setState({
             position,
             angle,
@@ -24,8 +24,8 @@ export default class Bullet extends Entity<BulletState> {
     }
 
     public setup(gameContext: GameContext): void {
-        this.texture = gameContext.assets.getTexture('bullet');
-        this.size = { width: 5, height: 15 };
+        this.texture = gameContext.assets.get('bullet');
+        this.size = { width: 2, height: 20 };
     }
 
     public update(gameContext: GameContext, timeDelta: number): void {

@@ -1,4 +1,4 @@
-export interface Asset {
+export interface Sound {
     name: string;
     url: string;
 }

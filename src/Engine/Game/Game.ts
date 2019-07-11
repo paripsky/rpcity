@@ -1,4 +1,4 @@
-import AssetsManager from '../Assets/AssetsManager';
+import AssetsManager from '../Textures/TextureManager';
 import InputManager from '../Input/InputManager';
 import Renderer2D from '../Rendering/Renderer2D';
 import Scene from '../Scene/Scene';

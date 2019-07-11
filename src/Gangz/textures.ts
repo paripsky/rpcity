@@ -27,5 +27,5 @@ export default [
     {
         name: 'temple-tileset',
         url: require('../../assets/temple-tileset.png'),
-    }
+    },
 ];

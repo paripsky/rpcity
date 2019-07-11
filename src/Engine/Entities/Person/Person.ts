@@ -6,11 +6,15 @@ import Component from '../../Component';
 import Bullet from '../Bullet';
 import MouseEvents from '../../Input/MouseEvents';
 import { Controller } from '../Controller';
+import { randomNumber } from '../../Utils/Random';
 
 export default class Person extends Entity {
     private velocityX: number = 0;
     private velocityY: number = 0;
     private speed: number = 1;
+    private timeSinceLastStep = 0;
+    private walkSteps = 4;
+    private currentStep = 0;
 
     public setup(gameContext: GameContext): void {
         const shoot = (): void => {
@@ -49,9 +53,19 @@ export default class Person extends Entity {
             }
 
             if (angle) {
+                this.timeSinceLastStep += timeDelta;
+                if (this.timeSinceLastStep > 0.6) {
+                    console.log(`walk-step-${this.currentStep}`);
+                    gameContext.sound.play(`walk-step-${this.currentStep}`, { volume: 0.1 });
+                    this.timeSinceLastStep = 0;
+                    // this.currentStep = ++this.currentStep % this.walkSteps;
+                    this.currentStep = randomNumber(0, this.walkSteps);
+                }
+
                 this.velocityX = Math.sin(angle) * this.speed;
                 this.velocityY = Math.cos(angle) * this.speed;
             } else {
+                this.timeSinceLastStep = 0.5;
                 this.velocityX = 0;
                 this.velocityY = 0;
             }
@@ -68,6 +82,7 @@ export default class Person extends Entity {
         // if (performance.now() - previousShot > bulletDelay) {
         const { position, angle } = this.state;
         gameContext.scene.addEntity(new Bullet({ position, angle }));
+        gameContext.sound.play('pistol-shot');
         // }
     }
 }
