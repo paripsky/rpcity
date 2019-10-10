@@ -1,3 +1,4 @@
+/* eslint-disable */
 const path = require('path');
 
 module.exports = {
@@ -8,7 +9,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
     },
     devServer: {
-        port: 3000,
+        port: 9000,
     },
     module: {
         rules: [

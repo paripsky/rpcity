@@ -8,6 +8,7 @@ Gangz is an online action role playing game.
 - [ ] tilemaps .tmx support?
 - [ ] city map
 - [ ] vector 2d class
+- [ ] survival elements - drink/eat/sleep needs
 - [ ] scaling to stop advantage
 - [ ] fire + explosion effect
 - [ ] vehicle collision

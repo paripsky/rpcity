@@ -7,6 +7,11 @@ import Renderer from '../Rendering/Renderer';
 import GameContext from '../Game/GameContext';
 import { Controller } from './Controller';
 
+export enum EntityType {
+    Person,
+    Vehicle,
+}
+
 export interface EntityState {
     position: Point;
     angle: number;
@@ -20,14 +25,9 @@ export default abstract class Entity<T = {}> extends Component<EntityState, T> {
     protected size: Size;
     protected id: string;
 
-    public constructor({
-        texture,
-        size = { width: 50, height: 80 },
-        position = { x: 300, y: 300 },
-    }) {
+    public constructor({ texture, size = { width: 50, height: 80 }, position = { x: 300, y: 300 } }) {
         super();
-        this.id = generateId(),
-        this.size = size;
+        (this.id = generateId()), (this.size = size);
         this.texture = texture;
         this.setState({
             position,
@@ -50,7 +50,7 @@ export default abstract class Entity<T = {}> extends Component<EntityState, T> {
     public setup(gameContext: GameContext): void {}
 
     public die(gameContext: GameContext): void {
-        console.info(`Entity ${this.id} died.`)
+        console.info(`Entity ${this.id} died.`);
         gameContext.scene.removeEntity(this.id);
     }
 

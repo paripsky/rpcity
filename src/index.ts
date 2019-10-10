@@ -18,3 +18,5 @@ playerTileset.then(templeTs => {
 });
 const gm: Game = new Gangz();
 gm.start();
+
+// TODO: make the game functional instead of OOP
